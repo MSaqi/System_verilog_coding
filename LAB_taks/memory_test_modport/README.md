@@ -1,2 +1,2 @@
-# <<EDA playground link>>
+# << EDA playground link >>
 "https://www.edaplayground.com/x/CDsr"
