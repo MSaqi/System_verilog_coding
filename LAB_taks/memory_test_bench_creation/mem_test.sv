@@ -10,6 +10,8 @@
 // 
 ///////////////////////////////////////////////////////////////////////////
 
+
+
 module mem_test ( input logic clk, 
                   output logic read, 
                   output logic write, 
@@ -17,100 +19,112 @@ module mem_test ( input logic clk,
                   output logic [7:0] data_in,     // data TO memory
                   input  wire [7:0] data_out     // data FROM memory
                 );
+	
 // SYSTEMVERILOG: timeunit and timeprecision specification
 timeunit 1ns;
 timeprecision 1ns;
-
 // SYSTEMVERILOG: new data types - bit ,logic
-bit         debug = 1;
-logic [7:0] rdata;      // stores data read from memory for checking
+bit         debug = 1; 
+logic [7:0] rdata = 0;      // stores data read from memory for checking   edited
+int error_status=0;
 
-
-
-//
-
-
-
-task expect ;
-    input [7:0] exp_data;
-    if (data !== exp_data) begin
-      $display("TEST FAILED");
-      $display("At time %0d addr=%b data=%b", $time, addr, data);
-      $display("data should be %b", exp_data);
-      $finish;
-    end
-   else begin 
-      $display("At time %0d addr=%b data=%b", $time, addr, data);
-   end 
-  endtask
-  
-  
 // Monitor Results
   initial begin
+      $dumpfile("dump.vcd");
+      $dumpvars(1);
       $timeformat ( -9, 0, " ns", 9 );
-// SYSTEMVERILOG: Time Literals
+// SYSTEMVERILOG: Time Literals ////
       #40000ns $display ( "MEMORY TEST TIMEOUT" );
       $finish;
     end
 
 initial
   begin: memtest
-  int error_status;
-
     $display("Clear Memory Test");
-
-    for (int i = 0; i< 32; i++)
-    		write_0(int i)
-       // Write zero data to every address location
-
-    for (int i = 0; i<32; i++)
+////////////////////////////////////////////////////////////////////	
+    for (int i = 0; i< 32; i++)  // Write zero data to every address location
+	    write_dat(i,0);  //addrs,data
+/////////////////////////READ MEM//////////////////////////////////////////////
+    for (int i = 0; i<32; i++)  
       begin 
        // Read every address location
-	read_mem(int i)
+	      read_mem_check(i,'h00);     // (addrs,expected value)
        // check each memory location for data = 'h00
-
       end
-
+////////////////////////////////////////////////////////////////////
    // print results of test
-
-    $display("Data = Address Test");
-
+    if(error_status==0)
+      $display("Memory clearing with zero done with ZERO error code");
+      $display("Data = Address Test");
+////////////////////////////////////////////////////////////////////////////////
     for (int i = 0; i< 32; i++)
-       // Write data = address to every address location
-       
-       
+      write_dat(i,i);// Write data = address to every address location
+  /////////////////////////////////////////////////////////////////    ////////// 
+     //#10;
     for (int i = 0; i<32; i++)
       begin
        // Read every address location
-
+        read_mem_check(i,i);
        // check each memory location for data = address
-
       end
+  ////////////////////////////////////////////////////////////////////  
+     if(error_status==0)
+      $display("Memory clearing with zero done with ZERO error code");
 
    // print results of test
 
     $finish;
   end
-  
+  /////////////////////////////////////////////////////////////////
   //functions
-  task void write_0(int x);
+// write function with data and address arguments///////////////////
+  task write_dat(int addrs,bit [7:0] data_in_usr);
   begin 
-      addr=x; data=0;
-    $display("Writing addr=%b data=%b",addr,data);
-    wr=1; rd=0; mem_test.addr=addr; rdata=data; @(negedge clk);
-  end
+    @(negedge clk)
+    begin
+      write=1; read=0;addr=addrs;data_in=data_in_usr;end   
+    end
+    if(debug==1)	  
+      $display("Writing addr=%d data=%d",addr,data_in_usr);
   endtask
+///////////////////////READ FUNCTION with data and expected value..//////////////////////////////////
 
+ task read_mem_check(int addrs,bit [7:0] exp_data);
+   @(negedge clk);
+   write <= 0;read  <= 1;addr  <= addrs;
+	  
+   @(posedge clk);
+   #1ns;   // so to be more precise about the data 
+   rdata = data_out;data_in=0;
+	  
+   if(debug==1)
+   $display("Reading addr=%d data=%b EXP_data= %b",addr,rdata,exp_data);  
+	  //$display("rdata = %b",rdata);  // if you want to see the data input to testbench
+  	
+  @(negedge clk);
+  exp(rdata,exp_data);
 
-function read_mem(int x);
-begin
-	addr=x; data=-1;
-    $display("Reading addr=%b data=%b",addr,data);
-    wr=0; rd=1; memory_test.addr=addr; rdata='bz; @(negedge clk) expect(data , exp_data='0);
-end
-endfunction
-
-
+ endtask
+////////////////////////////////////////////////////////////
+  
+  
+function void exp(bit [7:0] data,bit [7:0] exp_data);      // function taken from verilog test_bench LAB of memory lab 9..
+    
+    if (data !== exp_data) begin
+      $display("TEST FAILED");
+      $display("At time %0d addr=%b data=%b", $time, addr, data);
+      $display("data should be %b", exp_data);
+      error_status+=1;
+      $finish;
+    end
+   else begin 
+   if(debug==1)
+    $display("At time %0d addr=%d data=%d", $time, addr, data);
+    $display("THE TEST Passed");
+   end 
+ endfunction
+  
+//////////////////////////////////////////////////////////////////
 // add read_mem and write_mem tasks
 
 // add result print function
