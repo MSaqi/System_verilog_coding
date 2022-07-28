@@ -1,0 +1,1002 @@
+$date
+    Jul 28, 2022  15:38:47
+$end
+$version
+    TOOL:	xmsim	20.09-s003
+$end
+$timescale
+    1 ns
+$end
+
+$scope module tb_top $end
+$var reg       1 !    hclk $end
+$var reg       1 "    hresetn $end
+
+$scope module inf $end
+$var parameter 32 #    MEM_SIZE $end
+$var parameter 32 $    HADDR_SIZE $end
+$var parameter 32 %    HDATA_SIZE $end
+$var wire      1 &    hclk  $end
+$var wire      1 '    hresetn  $end
+$var reg      32 (    haddr [31:0] $end
+$var reg       2 )    htrans [1:0] $end
+$var reg       1 *    hwrite $end
+$var reg       3 +    hsize [2:0] $end
+$var reg       3 ,    hburst [2:0] $end
+$var reg       4 -    hprot [3:0] $end
+$var reg      32 .    hwdata [31:0] $end
+$var reg      32 /    hrdata [31:0] $end
+$var reg       1 0    hready $end
+$var reg       1 1    hresp $end
+$var reg       1 2    hmasterlock $end
+$var reg       1 3    hreadyout $end
+
+$scope clocking drv_cb $end
+$var reg      32 4    haddr [31:0] $end
+$var reg       2 5    htrans [1:0] $end
+$var reg       1 6    hwrite $end
+$var reg       3 7    hsize [2:0] $end
+$var reg       3 8    hburst [2:0] $end
+$var reg       4 9    hprot [3:0] $end
+$var reg      32 :    hwdata [31:0] $end
+$var reg      32 ;    hrdata [31:0] $end
+$var reg       1 <    hready $end
+$var reg       1 =    hresp $end
+$var reg       1 >    hreadyout $end
+$upscope $end
+
+
+$scope clocking mon_cb $end
+$var reg      32 ?    haddr [31:0] $end
+$var reg       2 @    htrans [1:0] $end
+$var reg       1 A    hwrite $end
+$var reg       3 B    hsize [2:0] $end
+$var reg       3 C    hburst [2:0] $end
+$var reg       4 D    hprot [3:0] $end
+$var reg      32 E    hwdata [31:0] $end
+$var reg      32 F    hrdata [31:0] $end
+$var reg       1 G    hready $end
+$var reg       1 H    hresp $end
+$var reg       1 I    hreadyout $end
+$upscope $end
+
+$upscope $end
+
+
+$scope module inst $end
+$var parameter 32 J    MEM_SIZE $end
+$var parameter 32 K    MEM_DEPTH $end
+$var parameter 32 L    HADDR_SIZE $end
+$var parameter 32 M    HDATA_SIZE $end
+$var parameter 56 N    TECHNOLOGY $end
+$var parameter 16 O    REGISTERED_OUTPUT $end
+$var parameter  8 P    INIT_FILE $end
+$var wire      1 '    HRESETn  $end
+$var wire      1 &    HCLK  $end
+$var wire      1 Q    HSEL  $end
+$var wire     32 R    HADDR [31:0] $end
+$var wire     32 S    HWDATA [31:0] $end
+$var reg      32 T    HRDATA [31:0] $end
+$var wire      1 U    HWRITE  $end
+$var wire      3 V    HSIZE [2:0] $end
+$var wire      3 W    HBURST [2:0] $end
+$var wire      4 X    HPROT [3:0] $end
+$var wire      2 Y    HTRANS [1:0] $end
+$var reg       1 Z    HREADYOUT $end
+$var wire      1 [    HREADY  $end
+$var wire      1 \    HRESP  $end
+$var parameter 32 ]    BE_SIZE $end
+$var parameter 32 ^    MEM_SIZE_DEPTH $end
+$var parameter 32 _    REAL_MEM_DEPTH $end
+$var parameter 32 `    MEM_ABITS $end
+$var parameter 32 a    MEM_ABITS_LSB $end
+$var reg       1 b    ahb_write $end
+$var reg       1 c    ahb_read $end
+$var reg       1 d    ahb_noseq $end
+$var reg       1 e    was_ahb_noseq $end
+$var reg       1 f    we $end
+$var reg       4 g    be [3:0] $end
+$var reg       8 h    raddr [7:0] $end
+$var reg       8 i    waddr [7:0] $end
+$var reg      32 j    nxt_adr [31:0] $end
+$var reg       1 k    contention $end
+$var reg       1 l    use_local_dout $end
+$var reg      32 m    dout [31:0] $end
+$var reg      32 n    dout_local [31:0] $end
+
+$scope module ram_inst $end
+$var parameter 32 o    ABITS $end
+$var parameter 32 p    DBITS $end
+$var parameter 56 q    TECHNOLOGY $end
+$var parameter  8 r    INIT_FILE $end
+$var parameter 48 s    RW_CONTENTION $end
+$var wire      1 '    rst_ni  $end
+$var wire      1 &    clk_i  $end
+$var wire      8 t    waddr_i [7:0] $end
+$var wire     32 S    din_i [31:0] $end
+$var wire      1 u    we_i  $end
+$var wire      4 v    be_i [3:0] $end
+$var wire      8 w    raddr_i [7:0] $end
+$var wire      1 Q    re_i  $end
+$var wire     32 x    dout_o [31:0] $end
+$var reg       1 y    contention $end
+$var reg       1 z    contention_reg $end
+$var reg      32 {    mem_dout [31:0] $end
+$var reg      32 |    din_dly [31:0] $end
+
+$scope begin genblk1 $end
+
+$scope module ram_inst $end
+$var parameter 32 }    ABITS $end
+$var parameter 32 ~    DBITS $end
+$var parameter  8 !!   INIT_FILE $end
+$var wire      1 '    rst_ni  $end
+$var wire      1 &    clk_i  $end
+$var wire      8 t    waddr_i [7:0] $end
+$var wire     32 S    din_i [31:0] $end
+$var wire      1 u    we_i  $end
+$var wire      4 v    be_i [3:0] $end
+$var wire      8 w    raddr_i [7:0] $end
+$var reg      32 "!   dout_o [31:0] $end
+$var reg      32 #!   mem_array[255] [31:0] $end
+$var reg      32 $!   mem_array[254] [31:0] $end
+$var reg      32 %!   mem_array[253] [31:0] $end
+$var reg      32 &!   mem_array[252] [31:0] $end
+$var reg      32 '!   mem_array[251] [31:0] $end
+$var reg      32 (!   mem_array[250] [31:0] $end
+$var reg      32 )!   mem_array[249] [31:0] $end
+$var reg      32 *!   mem_array[248] [31:0] $end
+$var reg      32 +!   mem_array[247] [31:0] $end
+$var reg      32 ,!   mem_array[246] [31:0] $end
+$var reg      32 -!   mem_array[245] [31:0] $end
+$var reg      32 .!   mem_array[244] [31:0] $end
+$var reg      32 /!   mem_array[243] [31:0] $end
+$var reg      32 0!   mem_array[242] [31:0] $end
+$var reg      32 1!   mem_array[241] [31:0] $end
+$var reg      32 2!   mem_array[240] [31:0] $end
+$var reg      32 3!   mem_array[239] [31:0] $end
+$var reg      32 4!   mem_array[238] [31:0] $end
+$var reg      32 5!   mem_array[237] [31:0] $end
+$var reg      32 6!   mem_array[236] [31:0] $end
+$var reg      32 7!   mem_array[235] [31:0] $end
+$var reg      32 8!   mem_array[234] [31:0] $end
+$var reg      32 9!   mem_array[233] [31:0] $end
+$var reg      32 :!   mem_array[232] [31:0] $end
+$var reg      32 ;!   mem_array[231] [31:0] $end
+$var reg      32 <!   mem_array[230] [31:0] $end
+$var reg      32 =!   mem_array[229] [31:0] $end
+$var reg      32 >!   mem_array[228] [31:0] $end
+$var reg      32 ?!   mem_array[227] [31:0] $end
+$var reg      32 @!   mem_array[226] [31:0] $end
+$var reg      32 A!   mem_array[225] [31:0] $end
+$var reg      32 B!   mem_array[224] [31:0] $end
+$var reg      32 C!   mem_array[223] [31:0] $end
+$var reg      32 D!   mem_array[222] [31:0] $end
+$var reg      32 E!   mem_array[221] [31:0] $end
+$var reg      32 F!   mem_array[220] [31:0] $end
+$var reg      32 G!   mem_array[219] [31:0] $end
+$var reg      32 H!   mem_array[218] [31:0] $end
+$var reg      32 I!   mem_array[217] [31:0] $end
+$var reg      32 J!   mem_array[216] [31:0] $end
+$var reg      32 K!   mem_array[215] [31:0] $end
+$var reg      32 L!   mem_array[214] [31:0] $end
+$var reg      32 M!   mem_array[213] [31:0] $end
+$var reg      32 N!   mem_array[212] [31:0] $end
+$var reg      32 O!   mem_array[211] [31:0] $end
+$var reg      32 P!   mem_array[210] [31:0] $end
+$var reg      32 Q!   mem_array[209] [31:0] $end
+$var reg      32 R!   mem_array[208] [31:0] $end
+$var reg      32 S!   mem_array[207] [31:0] $end
+$var reg      32 T!   mem_array[206] [31:0] $end
+$var reg      32 U!   mem_array[205] [31:0] $end
+$var reg      32 V!   mem_array[204] [31:0] $end
+$var reg      32 W!   mem_array[203] [31:0] $end
+$var reg      32 X!   mem_array[202] [31:0] $end
+$var reg      32 Y!   mem_array[201] [31:0] $end
+$var reg      32 Z!   mem_array[200] [31:0] $end
+$var reg      32 [!   mem_array[199] [31:0] $end
+$var reg      32 \!   mem_array[198] [31:0] $end
+$var reg      32 ]!   mem_array[197] [31:0] $end
+$var reg      32 ^!   mem_array[196] [31:0] $end
+$var reg      32 _!   mem_array[195] [31:0] $end
+$var reg      32 `!   mem_array[194] [31:0] $end
+$var reg      32 a!   mem_array[193] [31:0] $end
+$var reg      32 b!   mem_array[192] [31:0] $end
+$var reg      32 c!   mem_array[191] [31:0] $end
+$var reg      32 d!   mem_array[190] [31:0] $end
+$var reg      32 e!   mem_array[189] [31:0] $end
+$var reg      32 f!   mem_array[188] [31:0] $end
+$var reg      32 g!   mem_array[187] [31:0] $end
+$var reg      32 h!   mem_array[186] [31:0] $end
+$var reg      32 i!   mem_array[185] [31:0] $end
+$var reg      32 j!   mem_array[184] [31:0] $end
+$var reg      32 k!   mem_array[183] [31:0] $end
+$var reg      32 l!   mem_array[182] [31:0] $end
+$var reg      32 m!   mem_array[181] [31:0] $end
+$var reg      32 n!   mem_array[180] [31:0] $end
+$var reg      32 o!   mem_array[179] [31:0] $end
+$var reg      32 p!   mem_array[178] [31:0] $end
+$var reg      32 q!   mem_array[177] [31:0] $end
+$var reg      32 r!   mem_array[176] [31:0] $end
+$var reg      32 s!   mem_array[175] [31:0] $end
+$var reg      32 t!   mem_array[174] [31:0] $end
+$var reg      32 u!   mem_array[173] [31:0] $end
+$var reg      32 v!   mem_array[172] [31:0] $end
+$var reg      32 w!   mem_array[171] [31:0] $end
+$var reg      32 x!   mem_array[170] [31:0] $end
+$var reg      32 y!   mem_array[169] [31:0] $end
+$var reg      32 z!   mem_array[168] [31:0] $end
+$var reg      32 {!   mem_array[167] [31:0] $end
+$var reg      32 |!   mem_array[166] [31:0] $end
+$var reg      32 }!   mem_array[165] [31:0] $end
+$var reg      32 ~!   mem_array[164] [31:0] $end
+$var reg      32 !"   mem_array[163] [31:0] $end
+$var reg      32 ""   mem_array[162] [31:0] $end
+$var reg      32 #"   mem_array[161] [31:0] $end
+$var reg      32 $"   mem_array[160] [31:0] $end
+$var reg      32 %"   mem_array[159] [31:0] $end
+$var reg      32 &"   mem_array[158] [31:0] $end
+$var reg      32 '"   mem_array[157] [31:0] $end
+$var reg      32 ("   mem_array[156] [31:0] $end
+$var reg      32 )"   mem_array[155] [31:0] $end
+$var reg      32 *"   mem_array[154] [31:0] $end
+$var reg      32 +"   mem_array[153] [31:0] $end
+$var reg      32 ,"   mem_array[152] [31:0] $end
+$var reg      32 -"   mem_array[151] [31:0] $end
+$var reg      32 ."   mem_array[150] [31:0] $end
+$var reg      32 /"   mem_array[149] [31:0] $end
+$var reg      32 0"   mem_array[148] [31:0] $end
+$var reg      32 1"   mem_array[147] [31:0] $end
+$var reg      32 2"   mem_array[146] [31:0] $end
+$var reg      32 3"   mem_array[145] [31:0] $end
+$var reg      32 4"   mem_array[144] [31:0] $end
+$var reg      32 5"   mem_array[143] [31:0] $end
+$var reg      32 6"   mem_array[142] [31:0] $end
+$var reg      32 7"   mem_array[141] [31:0] $end
+$var reg      32 8"   mem_array[140] [31:0] $end
+$var reg      32 9"   mem_array[139] [31:0] $end
+$var reg      32 :"   mem_array[138] [31:0] $end
+$var reg      32 ;"   mem_array[137] [31:0] $end
+$var reg      32 <"   mem_array[136] [31:0] $end
+$var reg      32 ="   mem_array[135] [31:0] $end
+$var reg      32 >"   mem_array[134] [31:0] $end
+$var reg      32 ?"   mem_array[133] [31:0] $end
+$var reg      32 @"   mem_array[132] [31:0] $end
+$var reg      32 A"   mem_array[131] [31:0] $end
+$var reg      32 B"   mem_array[130] [31:0] $end
+$var reg      32 C"   mem_array[129] [31:0] $end
+$var reg      32 D"   mem_array[128] [31:0] $end
+$var reg      32 E"   mem_array[127] [31:0] $end
+$var reg      32 F"   mem_array[126] [31:0] $end
+$var reg      32 G"   mem_array[125] [31:0] $end
+$var reg      32 H"   mem_array[124] [31:0] $end
+$var reg      32 I"   mem_array[123] [31:0] $end
+$var reg      32 J"   mem_array[122] [31:0] $end
+$var reg      32 K"   mem_array[121] [31:0] $end
+$var reg      32 L"   mem_array[120] [31:0] $end
+$var reg      32 M"   mem_array[119] [31:0] $end
+$var reg      32 N"   mem_array[118] [31:0] $end
+$var reg      32 O"   mem_array[117] [31:0] $end
+$var reg      32 P"   mem_array[116] [31:0] $end
+$var reg      32 Q"   mem_array[115] [31:0] $end
+$var reg      32 R"   mem_array[114] [31:0] $end
+$var reg      32 S"   mem_array[113] [31:0] $end
+$var reg      32 T"   mem_array[112] [31:0] $end
+$var reg      32 U"   mem_array[111] [31:0] $end
+$var reg      32 V"   mem_array[110] [31:0] $end
+$var reg      32 W"   mem_array[109] [31:0] $end
+$var reg      32 X"   mem_array[108] [31:0] $end
+$var reg      32 Y"   mem_array[107] [31:0] $end
+$var reg      32 Z"   mem_array[106] [31:0] $end
+$var reg      32 ["   mem_array[105] [31:0] $end
+$var reg      32 \"   mem_array[104] [31:0] $end
+$var reg      32 ]"   mem_array[103] [31:0] $end
+$var reg      32 ^"   mem_array[102] [31:0] $end
+$var reg      32 _"   mem_array[101] [31:0] $end
+$var reg      32 `"   mem_array[100] [31:0] $end
+$var reg      32 a"   mem_array[99] [31:0] $end
+$var reg      32 b"   mem_array[98] [31:0] $end
+$var reg      32 c"   mem_array[97] [31:0] $end
+$var reg      32 d"   mem_array[96] [31:0] $end
+$var reg      32 e"   mem_array[95] [31:0] $end
+$var reg      32 f"   mem_array[94] [31:0] $end
+$var reg      32 g"   mem_array[93] [31:0] $end
+$var reg      32 h"   mem_array[92] [31:0] $end
+$var reg      32 i"   mem_array[91] [31:0] $end
+$var reg      32 j"   mem_array[90] [31:0] $end
+$var reg      32 k"   mem_array[89] [31:0] $end
+$var reg      32 l"   mem_array[88] [31:0] $end
+$var reg      32 m"   mem_array[87] [31:0] $end
+$var reg      32 n"   mem_array[86] [31:0] $end
+$var reg      32 o"   mem_array[85] [31:0] $end
+$var reg      32 p"   mem_array[84] [31:0] $end
+$var reg      32 q"   mem_array[83] [31:0] $end
+$var reg      32 r"   mem_array[82] [31:0] $end
+$var reg      32 s"   mem_array[81] [31:0] $end
+$var reg      32 t"   mem_array[80] [31:0] $end
+$var reg      32 u"   mem_array[79] [31:0] $end
+$var reg      32 v"   mem_array[78] [31:0] $end
+$var reg      32 w"   mem_array[77] [31:0] $end
+$var reg      32 x"   mem_array[76] [31:0] $end
+$var reg      32 y"   mem_array[75] [31:0] $end
+$var reg      32 z"   mem_array[74] [31:0] $end
+$var reg      32 {"   mem_array[73] [31:0] $end
+$var reg      32 |"   mem_array[72] [31:0] $end
+$var reg      32 }"   mem_array[71] [31:0] $end
+$var reg      32 ~"   mem_array[70] [31:0] $end
+$var reg      32 !#   mem_array[69] [31:0] $end
+$var reg      32 "#   mem_array[68] [31:0] $end
+$var reg      32 ##   mem_array[67] [31:0] $end
+$var reg      32 $#   mem_array[66] [31:0] $end
+$var reg      32 %#   mem_array[65] [31:0] $end
+$var reg      32 &#   mem_array[64] [31:0] $end
+$var reg      32 '#   mem_array[63] [31:0] $end
+$var reg      32 (#   mem_array[62] [31:0] $end
+$var reg      32 )#   mem_array[61] [31:0] $end
+$var reg      32 *#   mem_array[60] [31:0] $end
+$var reg      32 +#   mem_array[59] [31:0] $end
+$var reg      32 ,#   mem_array[58] [31:0] $end
+$var reg      32 -#   mem_array[57] [31:0] $end
+$var reg      32 .#   mem_array[56] [31:0] $end
+$var reg      32 /#   mem_array[55] [31:0] $end
+$var reg      32 0#   mem_array[54] [31:0] $end
+$var reg      32 1#   mem_array[53] [31:0] $end
+$var reg      32 2#   mem_array[52] [31:0] $end
+$var reg      32 3#   mem_array[51] [31:0] $end
+$var reg      32 4#   mem_array[50] [31:0] $end
+$var reg      32 5#   mem_array[49] [31:0] $end
+$var reg      32 6#   mem_array[48] [31:0] $end
+$var reg      32 7#   mem_array[47] [31:0] $end
+$var reg      32 8#   mem_array[46] [31:0] $end
+$var reg      32 9#   mem_array[45] [31:0] $end
+$var reg      32 :#   mem_array[44] [31:0] $end
+$var reg      32 ;#   mem_array[43] [31:0] $end
+$var reg      32 <#   mem_array[42] [31:0] $end
+$var reg      32 =#   mem_array[41] [31:0] $end
+$var reg      32 >#   mem_array[40] [31:0] $end
+$var reg      32 ?#   mem_array[39] [31:0] $end
+$var reg      32 @#   mem_array[38] [31:0] $end
+$var reg      32 A#   mem_array[37] [31:0] $end
+$var reg      32 B#   mem_array[36] [31:0] $end
+$var reg      32 C#   mem_array[35] [31:0] $end
+$var reg      32 D#   mem_array[34] [31:0] $end
+$var reg      32 E#   mem_array[33] [31:0] $end
+$var reg      32 F#   mem_array[32] [31:0] $end
+$var reg      32 G#   mem_array[31] [31:0] $end
+$var reg      32 H#   mem_array[30] [31:0] $end
+$var reg      32 I#   mem_array[29] [31:0] $end
+$var reg      32 J#   mem_array[28] [31:0] $end
+$var reg      32 K#   mem_array[27] [31:0] $end
+$var reg      32 L#   mem_array[26] [31:0] $end
+$var reg      32 M#   mem_array[25] [31:0] $end
+$var reg      32 N#   mem_array[24] [31:0] $end
+$var reg      32 O#   mem_array[23] [31:0] $end
+$var reg      32 P#   mem_array[22] [31:0] $end
+$var reg      32 Q#   mem_array[21] [31:0] $end
+$var reg      32 R#   mem_array[20] [31:0] $end
+$var reg      32 S#   mem_array[19] [31:0] $end
+$var reg      32 T#   mem_array[18] [31:0] $end
+$var reg      32 U#   mem_array[17] [31:0] $end
+$var reg      32 V#   mem_array[16] [31:0] $end
+$var reg      32 W#   mem_array[15] [31:0] $end
+$var reg      32 X#   mem_array[14] [31:0] $end
+$var reg      32 Y#   mem_array[13] [31:0] $end
+$var reg      32 Z#   mem_array[12] [31:0] $end
+$var reg      32 [#   mem_array[11] [31:0] $end
+$var reg      32 \#   mem_array[10] [31:0] $end
+$var reg      32 ]#   mem_array[9] [31:0] $end
+$var reg      32 ^#   mem_array[8] [31:0] $end
+$var reg      32 _#   mem_array[7] [31:0] $end
+$var reg      32 `#   mem_array[6] [31:0] $end
+$var reg      32 a#   mem_array[5] [31:0] $end
+$var reg      32 b#   mem_array[4] [31:0] $end
+$var reg      32 c#   mem_array[3] [31:0] $end
+$var reg      32 d#   mem_array[2] [31:0] $end
+$var reg      32 e#   mem_array[1] [31:0] $end
+$var reg      32 f#   mem_array[0] [31:0] $end
+
+$scope begin write[0] $end
+$var parameter 32 g#   i $end
+$upscope $end
+
+
+$scope begin write[1] $end
+$var parameter 32 h#   i $end
+$upscope $end
+
+
+$scope begin write[2] $end
+$var parameter 32 i#   i $end
+$upscope $end
+
+
+$scope begin write[3] $end
+$var parameter 32 j#   i $end
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+$upscope $end
+
+
+$scope module ta $end
+$var integer  32 k#   test_type $end
+$var integer  32 l#   repeat_count $end
+$upscope $end
+
+$upscope $end
+
+
+$scope module ahb3lite_pkg $end
+$var parameter 32 m#   HTRANS_SIZE $end
+$var parameter 32 n#   HSIZE_SIZE $end
+$var parameter 32 o#   HBURST_SIZE $end
+$var parameter 32 p#   HPROT_SIZE $end
+$var parameter  2 q#   HTRANS_IDLE [1:0] $end
+$var parameter  2 r#   HTRANS_BUSY [1:0] $end
+$var parameter  2 s#   HTRANS_NONSEQ [1:0] $end
+$var parameter  2 t#   HTRANS_SEQ [1:0] $end
+$var parameter  3 u#   HSIZE_B8 [2:0] $end
+$var parameter  3 v#   HSIZE_B16 [2:0] $end
+$var parameter  3 w#   HSIZE_B32 [2:0] $end
+$var parameter  3 x#   HSIZE_B64 [2:0] $end
+$var parameter  3 y#   HSIZE_B128 [2:0] $end
+$var parameter  3 z#   HSIZE_B256 [2:0] $end
+$var parameter  3 {#   HSIZE_B512 [2:0] $end
+$var parameter  3 |#   HSIZE_B1024 [2:0] $end
+$var parameter  3 }#   HSIZE_BYTE [2:0] $end
+$var parameter  3 ~#   HSIZE_HWORD [2:0] $end
+$var parameter  3 !$   HSIZE_WORD [2:0] $end
+$var parameter  3 "$   HSIZE_DWORD [2:0] $end
+$var parameter  3 #$   HBURST_SINGLE [2:0] $end
+$var parameter  3 $$   HBURST_INCR [2:0] $end
+$var parameter  3 %$   HBURST_WRAP4 [2:0] $end
+$var parameter  3 &$   HBURST_INCR4 [2:0] $end
+$var parameter  3 '$   HBURST_WRAP8 [2:0] $end
+$var parameter  3 ($   HBURST_INCR8 [2:0] $end
+$var parameter  3 )$   HBURST_WRAP16 [2:0] $end
+$var parameter  3 *$   HBURST_INCR16 [2:0] $end
+$var parameter  4 +$   HPROT_OPCODE [3:0] $end
+$var parameter  4 ,$   HPROT_DATA [3:0] $end
+$var parameter  4 -$   HPROT_USER [3:0] $end
+$var parameter  4 .$   HPROT_PRIVILEGED [3:0] $end
+$var parameter  4 /$   HPROT_NON_BUFFERABLE [3:0] $end
+$var parameter  4 0$   HPROT_BUFFERABLE [3:0] $end
+$var parameter  4 1$   HPROT_NON_CACHEABLE [3:0] $end
+$var parameter  4 2$   HPROT_CACHEABLE [3:0] $end
+$var parameter  1 3$   HRESP_OKAY $end
+$var parameter  1 4$   HRESP_ERROR $end
+$upscope $end
+
+$enddefinitions $end
+$dumpvars
+14$
+03$
+b1000 2$
+b0 1$
+b100 0$
+b0 /$
+b10 .$
+b0 -$
+b1 ,$
+b0 +$
+b111 *$
+b110 )$
+b101 ($
+b100 '$
+b11 &$
+b10 %$
+b1 $$
+b0 #$
+b11 "$
+b10 !$
+b1 ~#
+b0 }#
+b111 |#
+b110 {#
+b101 z#
+b100 y#
+b11 x#
+b10 w#
+b1 v#
+b0 u#
+b11 t#
+b10 s#
+b1 r#
+b0 q#
+b100 p#
+b11 o#
+b11 n#
+b10 m#
+b11 j#
+b10 i#
+b1 h#
+b0 g#
+b0 !!
+b100000 ~
+b1000 }
+b10000100101100101010000010000010101001101010011 s
+b0 r
+b1000111010001010100111001000101010100100100100101000011 q
+b100000 p
+b1000 o
+b10 a
+b1000 `
+b100000000 _
+b1 ^
+b100 ]
+b0 P
+b100111001001111 O
+b1000111010001010100111001000101010100100100100101000011 N
+b100000 M
+b100000 L
+b100000000 K
+b100 J
+b100000 %
+b100000 $
+b100 #
+0!
+0"
+0&
+0'
+bx (
+bx )
+x*
+bx +
+bx ,
+bx -
+bx .
+bx /
+x0
+01
+x2
+13
+bx 4
+bx 5
+x6
+bx 7
+bx 8
+bx 9
+bx :
+bx ;
+x<
+x=
+x>
+bx ?
+bx @
+xA
+bx B
+bx C
+bx D
+bx E
+bx F
+xG
+xH
+xI
+1Q
+bx R
+bx S
+bx T
+xU
+bx V
+bx W
+bx X
+bx Y
+1Z
+1[
+0\
+xb
+xc
+xd
+1e
+xf
+bx g
+bx h
+bx i
+bx j
+xk
+xl
+bx m
+bx n
+bx t
+xu
+bx v
+bx w
+bx x
+xy
+xz
+bx {
+bx |
+bx "!
+bx #!
+bx $!
+bx %!
+bx &!
+bx '!
+bx (!
+bx )!
+bx *!
+bx +!
+bx ,!
+bx -!
+bx .!
+bx /!
+bx 0!
+bx 1!
+bx 2!
+bx 3!
+bx 4!
+bx 5!
+bx 6!
+bx 7!
+bx 8!
+bx 9!
+bx :!
+bx ;!
+bx <!
+bx =!
+bx >!
+bx ?!
+bx @!
+bx A!
+bx B!
+bx C!
+bx D!
+bx E!
+bx F!
+bx G!
+bx H!
+bx I!
+bx J!
+bx K!
+bx L!
+bx M!
+bx N!
+bx O!
+bx P!
+bx Q!
+bx R!
+bx S!
+bx T!
+bx U!
+bx V!
+bx W!
+bx X!
+bx Y!
+bx Z!
+bx [!
+bx \!
+bx ]!
+bx ^!
+bx _!
+bx `!
+bx a!
+bx b!
+bx c!
+bx d!
+bx e!
+bx f!
+bx g!
+bx h!
+bx i!
+bx j!
+bx k!
+bx l!
+bx m!
+bx n!
+bx o!
+bx p!
+bx q!
+bx r!
+bx s!
+bx t!
+bx u!
+bx v!
+bx w!
+bx x!
+bx y!
+bx z!
+bx {!
+bx |!
+bx }!
+bx ~!
+bx !"
+bx ""
+bx #"
+bx $"
+bx %"
+bx &"
+bx '"
+bx ("
+bx )"
+bx *"
+bx +"
+bx ,"
+bx -"
+bx ."
+bx /"
+bx 0"
+bx 1"
+bx 2"
+bx 3"
+bx 4"
+bx 5"
+bx 6"
+bx 7"
+bx 8"
+bx 9"
+bx :"
+bx ;"
+bx <"
+bx ="
+bx >"
+bx ?"
+bx @"
+bx A"
+bx B"
+bx C"
+bx D"
+bx E"
+bx F"
+bx G"
+bx H"
+bx I"
+bx J"
+bx K"
+bx L"
+bx M"
+bx N"
+bx O"
+bx P"
+bx Q"
+bx R"
+bx S"
+bx T"
+bx U"
+bx V"
+bx W"
+bx X"
+bx Y"
+bx Z"
+bx ["
+bx \"
+bx ]"
+bx ^"
+bx _"
+bx `"
+bx a"
+bx b"
+bx c"
+bx d"
+bx e"
+bx f"
+bx g"
+bx h"
+bx i"
+bx j"
+bx k"
+bx l"
+bx m"
+bx n"
+bx o"
+bx p"
+bx q"
+bx r"
+bx s"
+bx t"
+bx u"
+bx v"
+bx w"
+bx x"
+bx y"
+bx z"
+bx {"
+bx |"
+bx }"
+bx ~"
+bx !#
+bx "#
+bx ##
+bx $#
+bx %#
+bx &#
+bx '#
+bx (#
+bx )#
+bx *#
+bx +#
+bx ,#
+bx -#
+bx .#
+bx /#
+bx 0#
+bx 1#
+bx 2#
+bx 3#
+bx 4#
+bx 5#
+bx 6#
+bx 7#
+bx 8#
+bx 9#
+bx :#
+bx ;#
+bx <#
+bx =#
+bx >#
+bx ?#
+bx @#
+bx A#
+bx B#
+bx C#
+bx D#
+bx E#
+bx F#
+bx G#
+bx H#
+bx I#
+bx J#
+bx K#
+bx L#
+bx M#
+bx N#
+bx O#
+bx P#
+bx Q#
+bx R#
+bx S#
+bx T#
+bx U#
+bx V#
+bx W#
+bx X#
+bx Y#
+bx Z#
+bx [#
+bx \#
+bx ]#
+bx ^#
+bx _#
+bx `#
+bx a#
+bx b#
+bx c#
+bx d#
+bx e#
+bx f#
+b1 k#
+b11 l#
+$end
+#5
+1!
+1"
+1'
+1&
+0H
+1I
+0=
+1>
+xe
+#6
+b0 (
+b0 4
+b0 )
+b0 5
+0*
+06
+b0 +
+b0 7
+b0 ,
+b0 8
+b0 -
+b0 9
+b0 .
+b0 :
+b0 S
+b0 X
+b0 W
+b0 V
+0U
+b0 Y
+b0 R
+b1 j
+0c
+0b
+1d
+b0 h
+b0 w
+#10
+0!
+0&
+#15
+1!
+1&
+b0 ?
+b0 @
+0A
+b0 B
+b0 C
+b0 D
+b0 E
+1e
+0k
+b1 g
+0f
+b0 i
+b0 |
+b0 t
+0u
+b1 v
+0y
+#20
+0!
+0&
+#25
+1!
+1&
+0l
+0z
+#30
+0!
+0&
+#35
+1!
+1&
+#40
+0!
+0&
+#45
+1!
+1&
+#50
+0!
+0&
+#55
+1!
+1&
+#60
+0!
+0&
+#65
+1!
+1&
+#70
+0!
+0&
+#75
+1!
+1&
+#80
+0!
+0&
+#85
+1!
+1&
+#90
+0!
+0&
+#95
+1!
+1&
+#100
+0!
+0&
+#105
+1!
+1&
+#110
+0!
+0&
+#115
+1!
+1&
+#120
+0!
+0&
+#125
+1!
+1&
