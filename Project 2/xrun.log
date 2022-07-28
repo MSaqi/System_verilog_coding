@@ -1,0 +1,99 @@
+xrun: 20.09-s003: (c) Copyright 1995-2020 Cadence Design Systems, Inc.
+TOOL:	xrun	20.09-s003: Started on Jul 28, 2022 at 15:52:23 EDT
+xrun
+	-Q
+	-unbuffered
+	-timescale 1ns/1ns
+	-sysv
+	-access +rw
+	design.sv
+	testbench.sv
+	Top level design units:
+		$unit_0x67f934e9
+		tb_top
+xmelab: *W,DSEMEL: This SystemVerilog design will be simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+Loading snapshot worklib.tb_top:sv .................... Done
+SVSEED default: 1
+xmsim: *W,RNDXCELON: A newer version of the SystemVerilog constraint solver is being used which has better support for array-solving, new solve-order mechanism, and seed stability enhancements..
+xmsim: *W,DSEM2009: This SystemVerilog design is simulated as per IEEE 1800-2009 SystemVerilog simulation semantics. Use -disable_sem2009 option for turning off SV 2009 simulation semantics.
+xcelium> source /xcelium20.09/tools/xcelium/files/xmsimrc
+xcelium> run
+Reset function
+               j = trans.randomize(); //randomizing the transaction
+                                 |
+xmsim: *W,SVRNDF (./generator.sv,30|33): The randomize method call failed. The unique id of the failed randomize call is 0.
+Observed simulation time : 5 NS + 5
+xmsim: *W,RNDOCS: These constraints contribute to the set of conflicting constraints:
+
+ constraint c2 {hsize inside {2};} //  32 bit size  (./transaction.sv,25)
+
+xmsim: *W,RNDOCS: These variables contribute to the set of conflicting constraints:
+
+
+Var_Name  Type  Status        Current_Value          Source                      
+---------------------------------------------------------------------------------
+hsize     (U3)  STATE VAR     0 (0x0)                ./transaction.sv ; line 15
+
+               j = trans.randomize(); //randomizing the transaction
+                                 |
+xmsim: *W,SVRNDF (./generator.sv,30|33): The randomize method call failed. The unique id of the failed randomize call is 1.
+Observed simulation time : 5 NS + 5
+xmsim: *W,RNDOCS: These constraints contribute to the set of conflicting constraints:
+
+ constraint c2 {hsize inside {2};} //  32 bit size  (./transaction.sv,25)
+
+xmsim: *W,RNDOCS: These variables contribute to the set of conflicting constraints:
+
+
+Var_Name  Type  Status        Current_Value          Source                      
+---------------------------------------------------------------------------------
+hsize     (U3)  STATE VAR     0 (0x0)                ./transaction.sv ; line 15
+
+               j = trans.randomize(); //randomizing the transaction
+                                 |
+xmsim: *W,SVRNDF (./generator.sv,30|33): The randomize method call failed. The unique id of the failed randomize call is 2.
+Observed simulation time : 5 NS + 5
+xmsim: *W,RNDOCS: These constraints contribute to the set of conflicting constraints:
+
+ constraint c2 {hsize inside {2};} //  32 bit size  (./transaction.sv,25)
+
+xmsim: *W,RNDOCS: These variables contribute to the set of conflicting constraints:
+
+
+Var_Name  Type  Status        Current_Value          Source                      
+---------------------------------------------------------------------------------
+hsize     (U3)  STATE VAR     0 (0x0)                ./transaction.sv ; line 15
+
+test functions
+mail didnt get line 33 driver.sv
+###################Scrbd#################
+mail didnt get line 33 driver.sv
+Transaction  haddr=          0 ,htrans= 0 ,hwrite= 0 , hsize= 0 ,hburst= 0 ,hprot=  0 ,hwdata=          0 ,hrdata=          0 , hready= 1 ,hresp= 0 
+
+rdata is same as in V.memory mem data =   x and recieved data =          0 
+congrats Test passed
+mail didnt get line 33 driver.sv
+Transaction  haddr=          0 ,htrans= 0 ,hwrite= 0 , hsize= 0 ,hburst= 0 ,hprot=  0 ,hwdata=          0 ,hrdata=          0 , hready= 1 ,hresp= 0 
+
+rdata is same as in V.memory mem data =   x and recieved data =          0 
+congrats Test passed
+mail didnt get line 33 driver.sv
+Transaction  haddr=          0 ,htrans= 0 ,hwrite= 0 , hsize= 0 ,hburst= 0 ,hprot=  0 ,hwdata=          0 ,hrdata=          0 , hready= 1 ,hresp= 0 
+
+rdata is same as in V.memory mem data =   x and recieved data =          0 
+congrats Test passed
+mail didnt get line 33 driver.sv
+Transaction  haddr=          0 ,htrans= 0 ,hwrite= 0 , hsize= 0 ,hburst= 0 ,hprot=  0 ,hwdata=          0 ,hrdata=          0 , hready= 1 ,hresp= 0 
+
+rdata is same as in V.memory mem data =   x and recieved data =          0 
+congrats Test passed
+mail didnt get line 33 driver.sv
+Transaction  haddr=          0 ,htrans= 0 ,hwrite= 0 , hsize= 0 ,hburst= 0 ,hprot=  0 ,hwdata=          0 ,hrdata=          0 , hready= 1 ,hresp= 0 
+
+rdata is same as in V.memory mem data =   x and recieved data =          0 
+congrats Test passed
+check  functions
+Simulation complete via $finish(1) at time 125 NS + 3
+./environment.sv:62                      $finish;
+xcelium> exit
+TOOL:	xrun	20.09-s003: Exiting on Jul 28, 2022 at 15:52:25 EDT  (total: 00:00:02)
