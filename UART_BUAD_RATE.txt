@@ -1,0 +1,25 @@
+UART TX-RX BUAD RATE to clk frequency mapping
+
+BUAD RATE is defined as the Bits per second (bps)
+
+This is pre set for each UART module which means both RX and TX guys needs to send the Data on this speed 
+
+BUAD RATES commonly used 
+4800 , 9600 , 19200 .. etc 
+lower values has lower frequency mapping as lower number bits are sent in 1 second  
+
+for example we can have BUAD rate as 9600 bps we need to map the frequency on which UART Module needs to sample data let Dive in 
+First we need to find how many seconds does it take ot send or recieve only 1 bit if this BUAD rate is set.
+for that we can simply get the propotional method to find the Per pit time 
+9600 bps : 1sec
+1 bit    : xsec
+
+1/9600 = x ;
+x = 0.000104167 
+104x10^-6 ; 
+so we have this as time period required for 1 bit to change or toggle or remain stable ;
+
+this directly states how much our clk period time should have ;
+clk period = time required for 1 bit 
+clk frequency  = clk_period / 2;
+we have this number in ms if there is some differenc in Timescale we need to have some clk g or clk divider to achieve the clk or write your own by using FLOPS
